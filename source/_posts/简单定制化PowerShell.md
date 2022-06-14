@@ -1,8 +1,9 @@
 ---
 title: 简单定制化PowerShell
-date: 2022-06-14 11:09:34
 tags:
-- shell
+  - shell
+abbrlink: 75eaa1ad
+date: 2022-06-14 11:09:34
 ---
 
 美化Powershell，为其添加命令别名。
@@ -15,7 +16,7 @@ tags:
 
 [Starship：可用于各种 Shell 的提示符](https://starship.rs/zh-cn/)
 
-<video muted="muted" autoplay="autoplay" loop="loop" playsinline="" class="demo-video"><source src="https://starship.rs/demo.webm" type="video/webm"> </video>
+<video muted="muted" autoplay="autoplay" loop="loop" playsinline="" class="demo-video" style="width:100%"><source src="https://starship.rs/demo.webm" type="video/webm"> </video>
 
 我系统里有cargo，直接一行命令装上了。
 
