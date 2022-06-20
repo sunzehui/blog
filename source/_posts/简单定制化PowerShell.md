@@ -12,7 +12,7 @@ date: 2022-06-14 11:09:34
 
 <!--more-->
 
-安装美化工具：
+## 安装美化工具：
 
 [Starship：可用于各种 Shell 的提示符](https://starship.rs/zh-cn/)
 
@@ -91,3 +91,8 @@ Set-PSReadLineOption -PredictionSource History # 设置预测文本来源为历�
 Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete # 面板展示联想
 ```
 
+
+
+参考：
+
+[缩短命令、调整按键、自动补全，这些代码值得你放进 PowerShell 配置文件 - 少数派 (sspai.com)](https://sspai.com/post/73019)
