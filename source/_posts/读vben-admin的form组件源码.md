@@ -236,6 +236,6 @@ emit('register', tableAction, formActions);
 
 留下当时看源码画的图，希望能找到更符合描述事件驱动的程序源码的图表。
 
-![](./读vben-admin的form组件源码/show.png)
+![](读vben-admin的form组件源码/show.png)
 
 [vbenjs/vue-vben-admin: A modern vue admin. It is based on Vue3, vite and TypeScript. It's fast！ (github.com)](https://github.com/vbenjs/vue-vben-admin)
