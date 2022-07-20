@@ -57,7 +57,7 @@ import { UnauthorizedException } from '@nestjs/common';
 import { Socket, Server } from 'socket.io';
 
 export class ExamClockGateway
-    implements 
+    implements OnGatewayConnection
 {
     constructor(private readonly examClockService: ExamClockService) {}
 
@@ -161,6 +161,117 @@ socket.on("connected", console.log);
 
 
 ![image-20220719120942731](在nestjs中使用websocket并实现登录鉴权/image-20220719120942731.png)
+
+## 优化
+
+现在来优化一下代码：
+
+在`exam-clock.service.ts`中，通过token验证用户信息，如果有多个`gateway`，每个`gateway`都需要验证用户信息，这样会造成很多冗余，且不利于新增`feature`后维护，所以将验证用户信息提取出来，我的思路：
+
+写个`guard`（守卫），验证`user`后挂到`socket`上，为了处理异常，创建一个全局异常过滤器，这个是基于`BaseWsExceptionFilter`的，跟`HTTP`还不太一样。
+
+
+
+验证用户信息守卫
+
+```typescript
+// exam-clock/guards/authGuard
+import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import { WsException } from '@nestjs/websockets';
+import * as _get from 'lodash/get';
+import { AuthService } from '@/common/module/auth/auth.service';
+import { UserService } from '@/common/module/user/user.service';
+
+@Injectable()
+export class AuthGuard implements CanActivate {
+  constructor(
+    private readonly authService: AuthService,
+    private readonly userService: UserService,
+  ) {}
+
+  async canActivate(context: ExecutionContext): Promise<boolean> {
+    const socket = context.switchToWs().getClient();
+    const token = _get(socket, 'handshake.headers.authorization');
+    try {
+      const decodedToken = await this.authService.verifyJwt(token);
+      socket.user = await this.userService.findOneById(+decodedToken.id);
+    } catch (e) {
+      throw new WsException(e.message);
+    }
+
+    return true;
+  }
+}
+```
+
+全局异常拦截器
+
+```typescript
+import { TokenExpiredError, verify } from 'jsonwebtoken';
+import {
+  ArgumentsHost,
+  Catch,
+  UnauthorizedException,
+} from '@nestjs/common';
+import { BaseWsExceptionFilter, WsException } from '@nestjs/websockets';
+import { Socket } from 'socket.io';
+
+@Catch(TokenExpiredError, UnauthorizedException)
+export class UnauthorizedErrorFilter extends BaseWsExceptionFilter {
+  catch(
+    exception: TokenExpiredError | UnauthorizedException,
+    host: ArgumentsHost,
+  ) {
+    const client = host.switchToWs().getClient() as Socket;
+    const error =
+      exception instanceof WsException ? exception.getError() : exception;
+    const details = error instanceof Object ? { ...error } : { message: error };
+    client.emit('exception', details);
+  }
+}
+```
+
+在`gateway`中使用
+
+```typescript
+import { ExamClockService } from './exam-clock.service';
+import { UnauthorizedException, UseFilters, UseGuards } from '@nestjs/common';
+import { ResultData } from '@/common/utils/result';
+import { AuthGuard } from '@/exam-clock/guards/auth.guard';
+import { UnauthorizedErrorFilter } from '@/common/filter/unauthorized.filter';
+
+// 使用过滤器（也可以放到全局）
+@UseFilters(new UnauthorizedErrorFilter())
+export class ExamClockGateway {
+    // ...省略
+    
+    // jwt守卫
+    @UseGuards(AuthGuard)
+    @SubscribeMessage('findAllExamClock')
+    async findAll(@User('id') userId: string) {
+        const result = await this.examClockService.findAll(+userId);
+        return ResultData.ok(result);
+    }
+}
+```
+
+为方便提取`userId`，遂写装饰器：User
+
+```typescript
+import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+
+export const User = createParamDecorator((data: any, ctx: ExecutionContext) => {
+    const req = ctx.switchToHttp().getRequest();
+    // if route is protected, there is a user set in auth.middleware
+    if (!!req.user) {
+        return !!data ? req.user[data] : req.user;
+    }
+});
+```
+
+可以跑通，效果同上
+
+
 
 ## 总结
 
