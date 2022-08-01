@@ -14,7 +14,7 @@ tags:
 
 看一下我的问题
 
-<video src="/post/5dc374b5/QQ20220801-164654.mp4"></video>
+<video muted="muted" autoplay="autoplay" loop="loop" playsinline="" class="demo-video" style="width:100%"><source src="/post/5dc374b5/QQ20220801-164654.mp4" type="video/webm"> </video>
 
 这里明显可以看到，两个选择题切换过后就不更新了，怎么点都是之前那个，实际应该更新成路由上面对应id的题目。
 
