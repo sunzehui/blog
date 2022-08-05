@@ -16,11 +16,11 @@ tags:
 
 想着使用`AVG`统计平均分，文档说直接`addSelect`就好了
 
-![060E8A4E08F1821231E7FFBBFE5035AA](/Users/sunzehui/Desktop/blog/source/_posts/060E8A4E08F1821231E7FFBBFE5035AA.jpg)
+![060E8A4E08F1821231E7FFBBFE5035AA](typeorm手动raw转entity/060E8A4E08F1821231E7FFBBFE5035AA.jpg)
 
 ，但 **最后要使用`getRawMany`**，这样一来，我原本自动`RAW`到`Entity的转换就无了，变成没有结构的一堆数据，像这样
 
-![image-20220805173709408](/Users/sunzehui/Desktop/blog/source/_posts/image-20220805173709408.png)
+![image-20220805173709408](typeorm手动raw转entity/image-20220805173709408.png)
 
 虽然结构很乱，但好歹我的平均分查出来了。
 
@@ -117,4 +117,4 @@ async findAll(userId: number) {
 
 查询结果符合我的预期，带结构并且平均分也查出来了
 
-![image-20220805175515153](/Users/sunzehui/Desktop/blog/source/_posts/image-20220805175515153.png)
+![image-20220805175515153](typeorm手动raw转entity/image-20220805175515153.png)
