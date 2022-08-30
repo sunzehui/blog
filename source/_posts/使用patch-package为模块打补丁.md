@@ -117,3 +117,7 @@ npx patch-package nestj-redis
 自然是成功在服务器上安装并启动成功！
 
 ![image-20220828103011949](使用patch-package为模块打补丁/image-20220828103011949.png)
+
+
+
+原Issue：[Nest 8 + redis bug · Issue #82 · skunight/nestjs-redis (github.com)](https://github.com/skunight/nestjs-redis/issues/82)
