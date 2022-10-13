@@ -14,6 +14,10 @@ date: 2022-10-12 06:51:14
 
 
 
+vue2可以使用`ref` 和`reactive`，没有使用proxy实现，还是用了defineProperty的getter,setter，可以放心使用！
+
+
+
 刚上手我还不敢相信这是用的vue2，赶紧翻看`package.json`，哦，vue2.7
 
 
@@ -104,3 +108,46 @@ if (inst) {
 ```
 
 最终我没有引入这个包，直接这么写的
+
+
+
+10月14号补充：
+
+试着在reactive中写数组，发现是不支持的
+
+```javascript
+const list = reactive([]);
+```
+
+报错描述的很清晰，说是defineProperty的局限性：不能监测数组内部变化。
+
+> Composition API 使用 Vue 2 的基于 `getter/setter` 的响应式系统进行反向移植，以确保浏览器兼容性。 这意味着与 Vue 3 的基于 `proxy` 的系统存在一些重要的行为差异：
+>
+> ——摘自掘金
+
+算是与vue3不同的地方，解决办法，我换`ref`用起来是可以的
+
+```javascript
+const list = ref([])
+```
+
+
+
+其他细节请看：[Vue 2.7 正式发布，代号为 Naruto - 掘金 (juejin.cn)](https://juejin.cn/post/7115361618774622216)
+
+
+
+vue-router3已经支持use-router了！
+
+[vue-router/composables.js at dev · vuejs/vue-router (github.com)](https://github.com/vuejs/vue-router/blob/dev/composables.js#L30)
+
+只需：
+
+```javascript
+import { useRoute } from 'vue-router/composables'
+const route = useRoute();
+```
+
+
+
+关于vue2.7中vue-router的讨论：[[功能请求\]添加对 Vue 2.7 的支持 ·问题 #3760 ·vuejs/vue-router (github.com)](https://github.com/vuejs/vue-router/issues/3760)
