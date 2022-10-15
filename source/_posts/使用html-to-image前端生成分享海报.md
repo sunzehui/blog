@@ -85,7 +85,7 @@ onMounted(async () => {
 
 ## 遇到的问题
 
-图片模糊。
+### 图片模糊
 
 之前按照文档直接使用`htmlToImage.toPng`，生成的图片较为模糊，即使设置质量100%。
 
@@ -98,6 +98,77 @@ onMounted(async () => {
 2. 转换`canvas`后提取图片`base64`
 
 ![下载 (1)](使用html-to-image前端生成分享海报/2.png)
+
+
+
+### 位置偏移
+
+来自2022年10月份的补充：
+
+![image-20221016071100381](使用html-to-image前端生成分享海报/image-20221016071100381.png)
+
+如图，整个图片整体向右下角偏移了，不多不少正好是margin-top和margin:0 auto的偏移量。
+
+根据网上的说法，大概是不支持有偏移的情况，他们描述的是脱离文档流下的top,left之类以及translate，但我用的margin，也存在这种情况，所以需要在截图之前清掉这些东西，于是我放弃了之前先展示dom，生成图片后展示图片覆盖dom的做法，直接将dom移出视口了（直接隐藏截不了图）
+
+```css
+.poster{
+    postion: absolute;
+    left: -100%;
+}
+```
+
+为了保证不再有偏移，从待截图的dom复制一份，插入到body，将所有能偏移的属性reset。
+
+```typescript
+// 生成海报
+export async function getPoster(
+	posterEl: Ref<HTMLElement | null>
+): Promise<string | null> {
+    await nextTick();
+    const targetDom = unref(posterEl);
+    if (!targetDom) return null;
+    window.scroll(0, 0); // 首先先顶部
+    const copyDom = targetDom.cloneNode(true); // 克隆一个
+    copyDom.style.width = targetDom.scrollWidth + "px";
+    copyDom.style.height = targetDom.scrollHeight + "px";
+    copyDom.classList.add("copy-style"); // 添加一个额外的样式，用来清除偏移
+    document.body.appendChild(copyDom); // 添加
+    const rect = copyDom.getBoundingClientRect();
+   
+    try {
+        // 转成 canvas 再转换 url
+        const canvas = await htmlToImage.toCanvas(copyDom, {
+            pixelRatio: window.devicePixelRatio * 2,
+            backgroundColor: "#fff",
+            x: rect.left,
+            y: rect.top,
+            useCORS: true,
+            width: copyDom.clientWidth,
+            height: copyDom.clientHeight,
+            scrollY: 0,
+            scrollX: 0,
+        });
+        const dataUrl = canvas.toDataURL();
+        return dataUrl;
+    } finally {
+        document.body.removeChild(copyDom); // 用完要删除
+    }
+}
+```
+
+```css
+/* 清除偏移样式 */
+.copy-style {
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    -webkit-transform: initial !important;
+    transform: initial !important;
+}
+```
+
+最终效果就是正常了，没有偏移
 
 
 
