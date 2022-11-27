@@ -93,9 +93,10 @@ tags:
 
 ![动画](在vue中添加动画优化指南/动画-1669516168822.gif)
 
-我能想到的方案有两种
+我能想到的方案有三种
 
 一个是给页面加滚动条的padding
 
 另一个是自定义滚动条，absolute不参与文档流。
 
+或者使用overflow: overlay 忽略滚动条，参考：[修复一个因为 scrollbar 占据空间导致的 bug - 腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1640410)
