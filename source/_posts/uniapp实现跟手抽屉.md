@@ -1,9 +1,10 @@
 ---
 title: uniapp实现跟手抽屉
-date: 2022-12-07 20:48:33
 tags:
-- vue
-- coding
+  - vue
+  - coding
+abbrlink: aed04a7f
+date: 2022-12-07 20:48:33
 ---
 
 跟手拖动卡片胶囊固定顶部，下拉胶囊回到底部，是常见的页面交互。
