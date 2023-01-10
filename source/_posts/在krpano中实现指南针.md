@@ -1,8 +1,9 @@
 ---
 title: 在krpano中实现指南针
-date: 2022-11-03 14:04:32
 tags:
-- krpano
+  - krpano
+abbrlink: 1cfb958f
+date: 2022-11-03 14:04:32
 ---
 
 指南针在全景世界中是很有必要的！

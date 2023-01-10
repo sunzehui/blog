@@ -1,8 +1,9 @@
 ---
 title: 开发krpano语法高亮vscode插件记录
-date: 2022-11-13 17:09:28
 tags:
-- vscode
+  - vscode
+abbrlink: 5e604b43
+date: 2022-11-13 17:09:28
 ---
 
 迫于对语法高亮的追求，致我看krpano代码时晕头转向，遂开发一款语法高亮插件帮助阅读和代码编写。
