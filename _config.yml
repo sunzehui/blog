@@ -45,7 +45,14 @@ mathjax:
   normal_width: 0.6 # relative normal (monospace) width
   append_css: true # add CSS to every page
   every_page: false # if true, every page will be rendered by mathjax regardless the `mathjax` setting in Front-matter of each article
-
+hexo-tag-dplayer:
+  cdn:
+    - https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js
+    - https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css
+  default: 
+    api: https://api.prprpr.me/dplayer/
+    loop: yes
+    screenshot: yes
 # Directory
 source_dir: source
 public_dir: public
