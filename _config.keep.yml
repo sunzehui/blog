@@ -39,7 +39,7 @@ style:
   first_screen:
     enable: true
     background_img: /images/bg.svg # You can use local image or image external link
-    description: 你见过星星吗？
+    description: 合抱之木生于毫末
 
   # Scroll style settings
   scroll:
