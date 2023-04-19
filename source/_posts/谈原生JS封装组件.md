@@ -29,7 +29,7 @@ date: 2023-03-11 18:12:02
 
 ### 滑块组件
 
-![image-20230311185259337](C:\Users\50157\AppData\Roaming\Typora\typora-user-images\image-20230311185259337.png)
+![image-20230311185259337](谈原生JS封装组件/image-20230311185259337-1681902988497.png)
 
 如你所见，滑块组件包括拖动条（slider）、导航按钮（bar）、标签（label）、输入框（input）、指示器（tooltip）
 
