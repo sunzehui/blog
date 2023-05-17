@@ -1,8 +1,9 @@
 ---
 title: 解决在ios上以视频作为背景弹出原生播放器问题
-date: 2023-05-08 13:55:44
 tags:
-- coding
+  - coding
+abbrlink: eacd074b
+date: 2023-05-08 13:55:44
 ---
 
 RT
