@@ -7,6 +7,9 @@ base_info:
   url: https://hui.zone/
   # Logo image (You can use local image, image external link or don’t fill)
   logo_img:
+inject:
+  head:
+    - <link href="https://npm.elemecdn.com/lxgw-wenkai-webfont" rel="stylesheet">
 
 # ---------------------------------------------------------------------------------------
 # Theme style settings
@@ -14,7 +17,8 @@ base_info:
 style:
   # Theme primary color
   primary_color: "#0066CC"
-
+  # 设置：楷体
+  # font_family: "STKaiti"
   # Avatar (You can use local image or image external link)
   avatar: /assert/images/avatar.gif
 
@@ -37,7 +41,7 @@ style:
 
   # First screen
   first_screen:
-    enable: true
+    enable: false
     background_img: /images/bg.svg # You can use local image or image external link
     description: 要为真理而斗争！
 
@@ -214,3 +218,5 @@ footer:
 # Keep version (Please don't modify)
 # ---------------------------------------------------------------------------------------
 version: 3.4.5
+
+

@@ -1240,10 +1240,10 @@ hexo-tag-dplayer@^0.3.3:
     hexo-log "^0.2.0"
     hexo-util "^0.6.2"
 
-hexo-theme-keep@^3.4.5:
-  version "3.4.5"
-  resolved "https://registry.npmmirror.com/hexo-theme-keep/-/hexo-theme-keep-3.4.5.tgz#01637e4cb1a2180ff4f081416c3c3a594e02079d"
-  integrity sha512-oJ3PUV7dvkIKaCIrxGmDbnesm+sMR0y9F2pwS6Tcen5gz8pJNEhtYHEZEPovw8ct7RAxE+pgYaFfXZGI2bnFbQ==
+hexo-theme-keep@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.npmmirror.com/hexo-theme-keep/-/hexo-theme-keep-3.6.1.tgz#5ad3b3fdb72f783f2b82a6c77d8124779317e158"
+  integrity sha512-nf3PeojLfxSZddwNT2zJfpFKR+kLFBvaCI/14rsqucqBibDID7we7xvrQBcAglSTSm9LSz7ohs4JCzFCbdmPxA==
 
 hexo-theme-landscape@^0.0.3:
   version "0.0.3"
