@@ -113,7 +113,7 @@ export default defineConfig({
 ```
 同时这也造成一个问题，在模块中引入的图片路径是相对`/`目录时，相对的是浏览器中的根目录，而不是脚本服务器的。
 从而导致我的图片加载失败。
-![image-20230703153946523](使用vite-plugin-monkey优化油猴脚本\image-20230703153946523.png)
+![image-20230703153946523](使用vite-plugin-monkey优化油猴脚本/image-20230703153946523.png)
 
 解决方案就是写一个链接替换插件，将原来指向根目录的链接替换为脚本服务器的链接。
 ```ts
@@ -153,6 +153,6 @@ export default defineConfig({
 })
 ```
 
-![image-20230703154420746](使用vite-plugin-monkey优化油猴脚本\image-20230703154420746.png)
+![image-20230703154420746](使用vite-plugin-monkey优化油猴脚本/image-20230703154420746.png)
 
 问题成功解决！
