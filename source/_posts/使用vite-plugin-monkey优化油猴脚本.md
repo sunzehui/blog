@@ -1,8 +1,9 @@
 ---
 title: 使用vite-plugin-monkey优化油猴脚本
-date: 2023-07-03 15:09:42
 tags:
-- coding
+  - coding
+abbrlink: a1c86e47
+date: 2023-07-03 15:09:42
 ---
 之前写过的脚本全部混杂在一个文件里，非常原始，不利于维护，所以想着用vite来优化一下。
 <!--more-->

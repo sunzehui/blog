@@ -1,8 +1,9 @@
 ---
 title: 使用chatgpt编写小说
-date: 2023-06-26 06:42:05
 tags:
-- chatgpt
+  - chatgpt
+abbrlink: c63cf213
+date: 2023-06-26 06:42:05
 ---
 自己喂提示词给chatgpt，总是感觉效果不理想，没有逻辑，今天看到一个项目，可以使用chatgpt编写小说，效果还不错，可以参考一下。
 <!--more-->
