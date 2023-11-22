@@ -3,6 +3,9 @@ var _paq = window._paq = window._paq || [];
 _paq.push(['trackPageView']);
 _paq.push(['enableLinkTracking']);
 (function () {
+  if (!window._paq) {
+    return;
+  }
   var u = "//analytics.hui.zone/";
   _paq.push(['setTrackerUrl', u + 'matomo.php']);
   _paq.push(['setSiteId', '3']);
