@@ -7,10 +7,13 @@ base_info:
   url: https://hui.zone/
   # Logo image (You can use local image, image external link or don’t fill)
   logo_img:
-inject:
-  head:
-    - <link href="https://npm.elemecdn.com/lxgw-wenkai-webfont" rel="stylesheet">
 
+inject:
+  enable: true
+  css:
+    - /css/var.css
+  js:
+    - /js/font.js
 # ---------------------------------------------------------------------------------------
 # Theme style settings
 # ---------------------------------------------------------------------------------------
@@ -18,7 +21,7 @@ style:
   # Theme primary color
   primary_color: "#0066CC"
   # 设置：楷体
-  # font_family: "STKaiti"
+  font_family: "LXGW WenKai"
   # Avatar (You can use local image or image external link)
   avatar: /assert/images/avatar.gif
 
@@ -156,8 +159,8 @@ local_search:
 # Comment plugin
 # ---------------------------------------------------------------------------------------
 comment:
-  enable: false
-  use: valine # values: valine | gitalk | twikoo
+  enable: true
+  use: gitalk # values: valine | gitalk | twikoo
 
   # Valine
   # See: https://github.com/xCss/Valine
@@ -169,10 +172,10 @@ comment:
   # Gitalk
   # See: https://github.com/gitalk/gitalk
   gitalk:
-    github_id: # GitHub repo owner
-    repository: # Repository name to store issues
-    client_id: # GitHub Application Client ID
-    client_secret: # GitHub Application Client Secret
+    github_id: sunzehui
+    repository: blog
+    client_id: da73834306b282cea271
+    client_secret: bdf580cbd7b2cd55d552175441ca69cd9c1a7b41
 
   # Twikoo
   # See: https://github.com/imaegoo/twikoo
@@ -198,7 +201,8 @@ lazyload:
 # CDN
 # ---------------------------------------------------------------------------------------
 cdn:
-  enable: false
+  enable: true       # Option values: true | false
+  provider: jsdelivr  # Option values: jsdelivr | unpkg
 
 # ---------------------------------------------------------------------------------------
 # PJAX
@@ -217,6 +221,6 @@ footer:
 # ---------------------------------------------------------------------------------------
 # Keep version (Please don't modify)
 # ---------------------------------------------------------------------------------------
-version: 3.4.5
+version: 5.0.0
 
 
