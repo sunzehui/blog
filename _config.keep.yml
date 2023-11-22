@@ -180,7 +180,7 @@ comment:
     repository: blog
     client_id: da73834306b282cea271
     client_secret: bdf580cbd7b2cd55d552175441ca69cd9c1a7b41
-    proxy: https://proxy-gitalk-api.netlify.app/
+    proxy: "https://proxy-gitalk-api.netlify.app/github_access_token"
 
   # Twikoo
   # See: https://github.com/imaegoo/twikoo
