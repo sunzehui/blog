@@ -15,14 +15,15 @@ inject:
   js:
     - /js/font.js
     - /js/matomo.js
+    - /js/ad.js
 # ---------------------------------------------------------------------------------------
 # Theme style settings
 # ---------------------------------------------------------------------------------------
 style:
   # Theme primary color
-  primary_color: "#0066CC"
+  primary_color: '#0066CC'
   # 设置：楷体
-  font_family: "LXGW WenKai"
+  font_family: 'LXGW WenKai'
   # Avatar (You can use local image or image external link)
   avatar: /assert/images/avatar.gif
 
@@ -89,8 +90,8 @@ home_article:
     enable: true # show tags in home page article block
     limit: 5 # max number of tags shown in home page article block
 home:
-  category: false  # Option values: true | false
-  tag: true       # Option values: true | false
+  category: false # Option values: true | false
+  tag: true # Option values: true | false
   announcement:
 # ---------------------------------------------------------------------------------------
 # Post page Settings
@@ -109,7 +110,7 @@ post:
     enable: false
     auto: false # if true, show Lv1, Lv2, Lv3... , If false, show custom label
     # label array item can be one or more
-    custom_label_list: ["Trainee", "Engineer", "Architect", "CTO", "BOSS"]
+    custom_label_list: ['Trainee', 'Engineer', 'Architect', 'CTO', 'BOSS']
 
 # ---------------------------------------------------------------------------------------
 # Code copy
@@ -181,7 +182,7 @@ comment:
     repository: blog
     client_id: da73834306b282cea271
     client_secret: bdf580cbd7b2cd55d552175441ca69cd9c1a7b41
-    proxy: "https://proxy-gitalk-api.netlify.app/github_access_token"
+    proxy: 'https://proxy-gitalk-api.netlify.app/github_access_token'
 
   # Twikoo
   # See: https://github.com/imaegoo/twikoo
@@ -207,8 +208,8 @@ lazyload:
 # CDN
 # ---------------------------------------------------------------------------------------
 cdn:
-  enable: true       # Option values: true | false
-  provider: unpkg  # Option values: jsdelivr | unpkg
+  enable: true # Option values: true | false
+  provider: unpkg # Option values: jsdelivr | unpkg
 
 # ---------------------------------------------------------------------------------------
 # PJAX
@@ -230,5 +231,3 @@ footer:
 # Keep version (Please don't modify)
 # ---------------------------------------------------------------------------------------
 version: 4.0.0
-
-
