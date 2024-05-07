@@ -17,7 +17,6 @@
     "dplayer": "^1.27.1",
     "hexo": "^7.0.0",
     "hexo-abbrlink": "^2.2.1",
-    "hexo-asset-image": "^1.0.0",
     "hexo-filter-mathjax": "^0.8.0",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
