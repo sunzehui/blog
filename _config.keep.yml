@@ -1,12 +1,26 @@
+## ======================================================================================
+## Hexo Theme Keep
+## Documents: https://keep-docs.xpoet.cn
+## Repository: https://github.com/XPoet/hexo-theme-keep
+## ======================================================================================
+
 # ---------------------------------------------------------------------------------------
-#  Your basic info
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/base_info.html
 # ---------------------------------------------------------------------------------------
 base_info:
+
   title: 孙泽辉
   author: 孙泽辉
   url: https://hui.zone/
-  # Logo image (You can use local image, image external link or don’t fill)
-  logo_img:
+  # Author avatar, You can use local image path or image link
+  avatar: /images/avatar.svg
+
+  # Website LOGO, You can use local image path or image link
+  logo: /images/logo.svg
+
+  # Website favicon, You can use local image path or image link
+  favicon: /images/logo.svg
+
 
 inject:
   enable: true
@@ -16,46 +30,42 @@ inject:
     - /js/font.js
     - /js/matomo.js
 # ---------------------------------------------------------------------------------------
-# Theme style settings
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/menu.html
 # ---------------------------------------------------------------------------------------
-style:
-  # Theme primary color
-  primary_color: '#0066CC'
-  # 设置：楷体
-  font_family: 'LXGW WenKai'
-  # Avatar (You can use local image or image external link)
-  avatar: /assert/images/avatar.gif
+# If you want to enable a new navigation menu, you need to create a corresponding page
+# e.g. to enable categories, you need to execute `hexo new page categories`
+# Use `||` to set icon for navigation menu, e.g. `home: / || fa-solid fa-home`
+menu:
+  home: /
+  archives: /archives
+  tags: /tags
+  links: /links
+  about: /about
 
-  # Favicon (You can use local image or image external link)
-  favicon: /images/logo.svg
 
-  # Article image align position, value: left | center
-  article_img_align: left
+# ---------------------------------------------------------------------------------------
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/first_screen.html
+# ---------------------------------------------------------------------------------------
+first_screen:
+  enable: false  # Option values: true | false
 
-  # Left side width
-  left_side_width: 260px
+  # First screen background image in light mode, You can use local image path or image link
+  background_img: /images/bg.svg
 
-  # Content area max width
-  content_max_width: 920px
+  # First screen background image in dark mode, You can use local image path or image link
+  background_img_dark: /images/bg.svg
 
-  # Mouse hover
-  hover:
-    shadow: true # shadow effect when the mouse hover
-    scale: true # scale effect when the mouse hover
+  # First screen description
+  # You can use the "||" to begin a newline, maximum is two lines.
+  description: Keep writing and Keep loving.
 
-  # First screen
-  first_screen:
-    enable: false
-    background_img: /images/bg.svg # You can use local image or image external link
-    description: 要为真理而斗争！
-    hitokoto: true
+  # If enable hitokoto, first screen description is different every time when you enter the website
+  hitokoto: false      # Option values: true | false
 
-  # Scroll style settings
-  scroll:
-    progress_bar:
-      enable: true
-    percent:
-      enable: true
+
+# ---------------------------------------------------------------------------------------
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/social_contact.html
+# ---------------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------------
 # Social contact link
@@ -66,81 +76,107 @@ social_contact:
     qq: /assert/images/qqcode.png
     github: https://github.com/sunzehui
     email: 501574022@qq.com
+# ---------------------------------------------------------------------------------------
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/scroll.html
+# ---------------------------------------------------------------------------------------
+scroll:
+  # Show progress bar in top when page scroll
+  progress_bar: true  # Option values: true | false
+
+  # Show percent when page scroll
+  percent: true       # Option values: true | false
+
+  # Hide header in top when page scroll
+  hide_header: true    # Option values: true | false
+
 
 # ---------------------------------------------------------------------------------------
-# Navigation menu
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/home.html
 # ---------------------------------------------------------------------------------------
-menu:
-  Home: /
-  Archives: /archives
-  Tags: /tags
-  Links: /links
-  About: /about
-  # ......
-
-# ---------------------------------------------------------------------------------------
-# Home page article block display settings
-# ---------------------------------------------------------------------------------------
-home_article:
-  category:
-    enable: false # show category in home page article block
-    limit: 3 # max number of categories shown in home page article block
-  tag:
-    enable: true # show tags in home page article block
-    limit: 5 # max number of tags shown in home page article block
 home:
-  category: false # Option values: true | false
-  tag: true # Option values: true | false
+  # Website announcement in home page
   announcement:
+
+  # Show category in home page post block
+  category: false           # Option values: true | false
+
+  # Show tags in home page post block
+  tag: false                # Option values: true | false
+
+  # Set the datetime type of home page post block
+  post_datetime: updated    # Option values: updated | created
+
+
 # ---------------------------------------------------------------------------------------
-# Post page Settings
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/post.html
 # ---------------------------------------------------------------------------------------
 post:
+  # Author badge in the post
+  author_badge:
+    enable: false         # Option values: true | false
+
+    # If true, show Lv1, Lv2, Lv3 ...
+    # If false, show custom badge
+    level_badge: false    # Option values: true | false
+
+    # Custom badge array, You can be fill one or more item
+    custom_badge: ["One", "Two", "Three"]
+
   # Post word count
-  # Dependencies: hexo-wordcount (npm install hexo-wordcount)
+  # Depend on Hexo Plugin: hexo-wordcount (`npm install hexo-wordcount`)
   # See: https://github.com/willin/hexo-wordcount
   word_count:
-    enable: true
-    wordcount: true # word count, one article
-    min2read: true # time to read, one article
+    wordcount: true     # Word count, one post. Option values: true | false
+    min2read: true      # Time to read, one post. Option values: true | false
 
-  # Author label
-  author_label:
-    enable: false
-    auto: false # if true, show Lv1, Lv2, Lv3... , If false, show custom label
-    # label array item can be one or more
-    custom_label_list: ['Trainee', 'Engineer', 'Architect', 'CTO', 'BOSS']
+  # Post datetime
+  datetime_format: "YYYY-MM-DD HH:mm:ss"  # Datetime format. e.g. "YYYY-MM-DD HH:mm:ss"
+
+  # Post copyright info
+  copyright_info: false  # Option values: true | false
+
+  # Post share
+  share: true           # Option values: true | false
+
+  # Reward author
+  reward:
+    enable: false        # Option values: true | false
+    img_link:            # Image link for the payment QR code
+    text:                # Custom reward text, Can be null
+
 
 # ---------------------------------------------------------------------------------------
-# Code copy
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/code_block.html
 # ---------------------------------------------------------------------------------------
-code_copy:
-  enable: true
-  style: default # values: default | mac
+code_block:
+  # Toolbar include: "code copy", "code block collapse" and "code language"
+  tools:
+    enable: false            # Option values: true | false
+    style: default           # Option values: default | mac
+  highlight_theme: default   # Option values: default | obsidian
+
 
 # ---------------------------------------------------------------------------------------
-# Table of Contents in the Sidebar
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/toc.html
 # ---------------------------------------------------------------------------------------
 toc:
-  enable: true
+  enable: true      # Option values: true | false
 
-  # Automatically add list number to toc.
-  number: false
+  # Automatically add list number to toc
+  number: false      # Option values: true | false
 
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
-  expand_all: false
+  expand_all: false  # Option values: true | false
 
-  # If true, open TOC every time when you enter the article page
-  init_open: true
+  # If true, auto open TOC every time when you enter post page
+  init_open: true    # Option values: true | false
 
-# ---------------------------------------------------------------------------------------
-# Post copyright info
-# ---------------------------------------------------------------------------------------
-copyright_info:
-  enable: true
+  # TOC layout on post page
+  layout: right      # Option values: left | right
+
 
 # ---------------------------------------------------------------------------------------
-# Website count
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/website_count.html
 # ---------------------------------------------------------------------------------------
 website_count:
   # busuanzi
@@ -152,30 +188,34 @@ website_count:
     page_pv: true
 
 # ---------------------------------------------------------------------------------------
-# Local Search
-# Dependencies: hexo-generator-searchdb
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/local_search.html
+# Depend on Hexo Plugin: hexo-generator-searchdb (`npm install hexo-generator-searchdb`)
 # See: https://github.com/theme-next/hexo-generator-searchdb
 # ---------------------------------------------------------------------------------------
 local_search:
-  enable: true
-  preload: false # Preload the search data when the page loads
+  enable: true   # Option values: true | false
+  preload: false  # Preload the search data when the page loads. Option values: true | false
+
 
 # ---------------------------------------------------------------------------------------
-# Comment plugin
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/comment.html
 # ---------------------------------------------------------------------------------------
 comment:
-  enable: true
-  use: gitalk # values: valine | gitalk | twikoo
+  enable: true   # Option values: true | false
+  use: gitalk     # Option values: valine | gitalk | twikoo | waline | giscus | artalk | disqus
 
   # Valine
   # See: https://github.com/xCss/Valine
+  #      https://valine.js.org
   valine:
-    appid: # your leancloud application appid
-    appkey: # your leancloud application appkey
-    placeholder: # your placeholder
+    appid:           # Your leancloud application appid
+    appkey:          # Your leancloud application appkey
+    server_urls:     # Your Server URL
+    placeholder:     # Input box placeholder
 
   # Gitalk
   # See: https://github.com/gitalk/gitalk
+  #      https://gitalk.github.io
   gitalk:
     github_id: sunzehui
     repository: blog
@@ -185,48 +225,93 @@ comment:
 
   # Twikoo
   # See: https://github.com/imaegoo/twikoo
+  #      https://twikoo.js.org
   twikoo:
-    env_id: # Tencent Cloud environment id
-    region: # environment region. If select Guangzhou, fill in "ap-guangzhou".
+    env_id:          # Environment ID
+    region:          # Environment region, Can be null
+    version: 1.6.21  # Twikoo version, default use 1.6.21
+
+  # Waline
+  # See: https://github.com/walinejs/waline
+  #      https://waline.js.org/guide/get-started.html
+  waline:
+    server_url:     # Server URL
+    reaction: false # Post reactions, Option values: true | false
+    version: 3      # Waline version, default use v3
+
+  # Giscus
+  # See: https://github.com/giscus/giscus
+  #      https://giscus.app
+  # Please generate your configuration items in https://giscus.app
+  giscus:
+    repo:
+    repo_id:
+    category: Announcements    # Recommend use Announcements
+    category_id:
+    reactions_enabled: false   # Option values: true | false
+
+  # Artalk
+  # See: https://github.com/ArtalkJS/Artalk
+  #      https://artalk.js.org
+  artalk:
+    server:                    # Server URL
+
+  # Disqus
+  # See: https://disqus.com/
+  disqus:
+    shortname:                 # Disqus Shortname
+
 
 # ---------------------------------------------------------------------------------------
-# RSS
-# Dependencies: hexo-generator-feed
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/rss.html
+# Depend on Hexo Plugin: hexo-generator-feed (`npm install hexo-generator-feed`)
 # See: https://github.com/hexojs/hexo-generator-feed
 # ---------------------------------------------------------------------------------------
 rss:
-  enable: true
+  enable: true  # Option values: true | false
+
 
 # ---------------------------------------------------------------------------------------
-# Lazyload image
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/lazyload.html
 # ---------------------------------------------------------------------------------------
 lazyload:
-  enable: true
+  enable: true  # Option values: true | false
+
 
 # ---------------------------------------------------------------------------------------
-# CDN
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/cdn.html
 # ---------------------------------------------------------------------------------------
 cdn:
-  enable: true # Option values: true | false
-  provider: unpkg # Option values: jsdelivr | unpkg
+  enable: true       # Option values: true | false
+  provider: unpkg     # Option values: cdnjs | jsdelivr | unpkg
+
 
 # ---------------------------------------------------------------------------------------
-# PJAX
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/pjax.html
 # ---------------------------------------------------------------------------------------
 pjax:
-  enable: true
+  enable: true  # Option values: true | false
+
 
 # ---------------------------------------------------------------------------------------
-# Footer settings
+# Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/footer.html
 # ---------------------------------------------------------------------------------------
 footer:
-  since: 2022 # the starting year of your website, Can be null
-  # record_code: 鲁ICP备2021017637号
-  upyun: # url
-  word_count: true
-  provider: vercel
+  since: 2022            # The starting year of your website, Can be null
+  word_count: true      # Option values: true | false
 
-# ---------------------------------------------------------------------------------------
-# Keep version (Please don't modify)
-# ---------------------------------------------------------------------------------------
-version: 4.0.0
+  site_deploy:
+    enable: true        # Option values: true | false
+    provider: vercel     # Option values: github | vercel | netlify | cloudflare | gitee | aliyun | tencent_cloud | upyun
+    url:                 # Your deployment provider url, Can be null
+
+  record:
+    enable: true        # Option values: true | false
+    list:
+      - code:            # record code of your website
+        link:            # record link of your website, Can be null
+      # e.g.
+      # - code: ICP 001
+      # - link: https://beian.miit.gov.cn
+
+

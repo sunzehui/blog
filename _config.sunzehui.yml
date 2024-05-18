@@ -1,3 +1,4 @@
+
 # ---------------------------------------------------------------------------------------
 #  Your basic info
 # ---------------------------------------------------------------------------------------
@@ -8,13 +9,21 @@ base_info:
   # Logo image (You can use local image, image external link or don’t fill)
   logo_img:
 
+inject:
+  enable: true
+  css:
+    - /css/var.css
+  js:
+    - /js/font.js
+    - /js/matomo.js
 # ---------------------------------------------------------------------------------------
 # Theme style settings
 # ---------------------------------------------------------------------------------------
 style:
   # Theme primary color
-  primary_color: "#0066CC"
-
+  primary_color: '#0066CC'
+  # 设置：楷体
+  font_family: 'LXGW WenKai'
   # Avatar (You can use local image or image external link)
   avatar: /assert/images/avatar.gif
 
@@ -39,7 +48,8 @@ style:
   first_screen:
     enable: false
     background_img: /images/bg.svg # You can use local image or image external link
-    description: 你见过星星吗？
+    description: 要为真理而斗争！
+    hitokoto: true
 
   # Scroll style settings
   scroll:
@@ -56,7 +66,7 @@ social_contact:
   links:
     qq: /assert/images/qqcode.png
     github: https://github.com/sunzehui
-    email: sunzh@sdxun.cn
+    email: 501574022@qq.com
 
 # ---------------------------------------------------------------------------------------
 # Navigation menu
@@ -79,7 +89,10 @@ home_article:
   tag:
     enable: true # show tags in home page article block
     limit: 5 # max number of tags shown in home page article block
-
+home:
+  category: false # Option values: true | false
+  tag: true # Option values: true | false
+  announcement:
 # ---------------------------------------------------------------------------------------
 # Post page Settings
 # ---------------------------------------------------------------------------------------
@@ -97,7 +110,7 @@ post:
     enable: false
     auto: false # if true, show Lv1, Lv2, Lv3... , If false, show custom label
     # label array item can be one or more
-    custom_label_list: ["Trainee", "Engineer", "Architect", "CTO", "BOSS"]
+    custom_label_list: ['Trainee', 'Engineer', 'Architect', 'CTO', 'BOSS']
 
 # ---------------------------------------------------------------------------------------
 # Code copy
@@ -152,8 +165,8 @@ local_search:
 # Comment plugin
 # ---------------------------------------------------------------------------------------
 comment:
-  enable: false
-  use: valine # values: valine | gitalk | twikoo
+  enable: true
+  use: gitalk # values: valine | gitalk | twikoo
 
   # Valine
   # See: https://github.com/xCss/Valine
@@ -165,10 +178,11 @@ comment:
   # Gitalk
   # See: https://github.com/gitalk/gitalk
   gitalk:
-    github_id: # GitHub repo owner
-    repository: # Repository name to store issues
-    client_id: # GitHub Application Client ID
-    client_secret: # GitHub Application Client Secret
+    github_id: sunzehui
+    repository: blog
+    client_id: da73834306b282cea271
+    client_secret: bdf580cbd7b2cd55d552175441ca69cd9c1a7b41
+    proxy: 'https://proxy-gitalk-api.netlify.app/github_access_token'
 
   # Twikoo
   # See: https://github.com/imaegoo/twikoo
@@ -194,7 +208,8 @@ lazyload:
 # CDN
 # ---------------------------------------------------------------------------------------
 cdn:
-  enable: false
+  enable: true # Option values: true | false
+  provider: unpkg # Option values: jsdelivr | unpkg
 
 # ---------------------------------------------------------------------------------------
 # PJAX
@@ -207,10 +222,11 @@ pjax:
 # ---------------------------------------------------------------------------------------
 footer:
   since: 2022 # the starting year of your website, Can be null
-  icp: 鲁ICP备2021017637号
   upyun: # url
+  word_count: true
+  provider: vercel
 
 # ---------------------------------------------------------------------------------------
 # Keep version (Please don't modify)
 # ---------------------------------------------------------------------------------------
-version: 3.4.5
+version: 4.1.2
