@@ -1,0 +1,88 @@
+$archive-year-font-size = 1.6rem
+$post-title-font-size = 1.2rem
+$post-date-font-size = 1rem
+$post-date-width = 3.6rem
+$post-item-padding = 1.2rem
+$timeline-circle-width = 0.6rem
+
+.archive-list-container {
+
+  .archive-item {
+    margin-bottom var(--component-gap)
+
+    &:last-child {
+      margin-bottom 0
+    }
+
+    .archive-item-header {
+      margin-bottom 0.8rem
+
+      .archive-year {
+        margin-right 6px
+        color var(--text-color-2)
+        font-weight 600
+        font-size $archive-year-font-size
+
+        +keep-tablet() {
+          font-size $archive-year-font-size * 0.9
+        }
+      }
+    }
+
+
+    .archive-item-body {
+      padding-left $post-item-padding
+
+      .post-item {
+        display flex
+        align-items center
+        justify-content space-between
+        width 100%
+        padding ($post-item-padding * 0.68) 0 ($post-item-padding * 0.68) $post-item-padding
+        font-size 1rem
+        border-left 1px dashed var(--border-color)
+
+        &::before {
+          position absolute
+          top 50%
+          left -($timeline-circle-width * 0.5)
+          z-index $z-index-1
+          box-sizing border-box
+          width $timeline-circle-width
+          height $timeline-circle-width
+          background var(--text-color-5)
+          border-radius 50%
+          transform translateY(-50%)
+          content ''
+        }
+
+
+        &:hover {
+          &::before {
+            background var(--text-color-4)
+          }
+
+
+          a.post-title {
+            color var(--primary-color)
+          }
+        }
+
+        .post-date {
+          width $post-date-width
+          margin-right $post-item-padding
+          color var(--text-color-3)
+          font-size $post-date-font-size
+        }
+
+
+        a.post-title {
+          width 'calc(100% - %s)' % $post-date-width
+          color var(--text-color-3)
+        }
+      }
+    }
+  }
+}
+
+
